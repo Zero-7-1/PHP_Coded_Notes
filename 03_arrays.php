@@ -1,5 +1,5 @@
 <?php
-/* Arrrays are special variables that holds multiple values 
+/* Arrays are special variables that holds multiple values 
    In PHP, there are three types of arrays:
     Indexed arrays - Arrays with a numeric index
     Associative arrays - Arrays with named keys
