@@ -4,7 +4,7 @@
 
 -> A PHP script can be placed anywhere in the document.
 -> A PHP script is executed on the server, and the plain HTML result 
-is sent back to the browser.
+   is sent back to the browser.
 -> PHP is the ugliest language, atleast syntax wise other than this, 
    it is powefull and still used today even though many hates it. 
    fact: Facebook still uses PHP as its backend stack
@@ -22,8 +22,8 @@ echo "Hello PHP \n";
 echo 10101010;
 echo '<h1> Hello PHP </h1>';
             /* To output content in PHP on a new line, 
-            we can use the newline character \n  inisde double quotes
-            or <br> tag for html contents  */
+             we can use the newline character \n  inisde double quotes
+             or <br> tag for html contents  */
             // .PHP_EOL similar to new line character (works good for multi os)
 
 
@@ -43,12 +43,12 @@ print 'printPHP' . "\n";
 print_r([1, 2, 3])  . "\n";
   // we will do explanation of the output in arrays file 
 
-// var_dump - Provides more info like data type and length
+// var_dump - Provides more info, data type and length
 var_dump('Hello') .PHP_EOL;
 var_dump([1, 2, 3]) .PHP_EOL;
 
 
-// these outputs will look ugly for sure but intersting things will come .. 
+// these outputs will look ugly for sure in browser 
 ?>
   
 <!-- We can output any HTML that we want within a .php file -->

@@ -17,8 +17,9 @@ It is created the moment we first assign a value to it.
 */
 
 /*
-     Variable Rules 
+  Variable Rules 
 - Variables must be prefixed with $
+
 - Variables must start with a letter or the underscore character
 - variables can't start with a number
 - Variables can only contain alpha-numeric characters and underscores (A-z, 0-9, and _ )
@@ -37,12 +38,52 @@ echo "$name is $age years old \n";
 // We can even use . like +  but double quotes method is easier  
 
 
-// Arithmetic Operators
 
-echo 5 + 5 . "\n";
-echo 10 - 6 . "\n";
-echo 5 * 10 . "\n";
-echo 10 / 2 . "\n";
+// more about Strings .. 
+
+// strlen() function returns the length of a string
+echo strlen("Sudhanshu") . "\n";
+
+// str_word_count() function counts the number of words in a string
+echo str_word_count("Hello world!") . "\n";
+
+// strpos() function searches for a specific text within a string
+echo strpos("Hello world!", "world") . "\n" ;
+/* returns the character position of the first match that is 6
+      If no match is found, it will return FALSE. 
+       */
+
+      //  refer complete string reference on w3schools or any other source 
+
+// built-in functions that we can use to modify strings
+/*
+strtoupper() function returns the string in upper case
+strtolower() function returns the string in lower case
+str_replace() function replaces some characters with some other characters
+strrev() function reverses a string
+trim() removes any whitespace from the beginning or the end
+explode() function splits a string into an array
+returns a range of characters by using the substr() function
+*/
+
+
+// replacing characters in a string 
+$greet = 'Hello World';
+echo str_replace('World', 'PHP', $greet) . "\n";
+
+echo substr($greet, 0, 5) . "\n"; // Specify the start index and end index 
+// Use negative indexes to start the slice from the end of the string
+  // The last character has index -1
+ 
+
+
+
+
+
+
+
+
+
 
 /* PHP is a Loosely Typed Language::
 PHP automatically associates a data type to the variable, depending on its value. 
@@ -59,3 +100,53 @@ the strict requirement, it will throw a "Fatal Error" on a type mismatch.
 define('HOST', 'localhost');
 define('DB_name', 'dev_db');
 echo(HOST);
+
+
+
+// PHP Variables Scope 
+/* The scope of a variable is the part of the script where the variable can be 
+referenced or used. 
+PHP has two different variable scopes:
+local -  declared within a function has a LOCAL SCOPE and 
+         can only be accessed within that function
+    
+global - declared outside a function has a GLOBAL SCOPE and 
+        can only be accessed outside a function and not inside a function 
+*/
+
+
+
+// global, we already outputed global scoped varibles, those can't be acessed inside 
+     // a function , we will see about function in function file 
+
+// global keyword is used to access a global variable from within a function
+
+     function testFunction() {
+      $x = 5; // local scope
+      global $name; // using global keyword 
+      echo "<h3> Variable inside function is: $x </h3>";
+     //  echo "<h3>Variable inside function is: $name</h3>"; UNDEFINED 
+     echo "<h3> Using global keyword with global Variable inside function, we can 
+                access the global varibale that is $name </h3>";
+
+     }
+     testFunction();
+     echo "<h3> Using global Variable inside function that is: $name will show 
+                undefined </h3>";
+
+// We can have local variables with the same name in different functions, 
+  // because local variables are only recognized by the function
+        // in which they are declared.
+
+/* static keyword - when a function is completed/executed, all of its variables are 
+                    deleted. However, sometimes we want a local variable NOT to 
+                    be deleted. We need it for a further job. To do this, 
+                    use the static keyword when first declare the variable */
+function testFun() {
+    static $staticVAR = 1 . "\n";
+    echo $staticVAR;
+    $staticVAR++;
+}
+
+testFun(); // 1
+testFun(); // 2 and so on .. 
