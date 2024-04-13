@@ -42,18 +42,17 @@ echo "$name is $age years old \n";
 // more about Strings .. 
 
 // strlen() function returns the length of a string
-echo strlen("Sudhanshu") . "\n";
+echo strlen("Sudhanshu") . "\n";   // outputs 9
 
 // str_word_count() function counts the number of words in a string
-echo str_word_count("Hello world!") . "\n";
+echo str_word_count("Hello world!") . "\n";  // outputs 2 
 
 // strpos() function searches for a specific text within a string
 echo strpos("Hello world!", "world") . "\n" ;
 /* returns the character position of the first match that is 6
       If no match is found, it will return FALSE. 
        */
-
-      //  refer complete string reference on w3schools or any other source 
+   //  refer complete string reference on w3schools 
 
 // built-in functions that we can use to modify strings
 /*
