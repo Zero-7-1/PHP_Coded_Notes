@@ -22,13 +22,17 @@ echo "Hello PHP \n";
 echo 10101010;
 echo '<h1> Hello PHP </h1>';
             /* To output content in PHP on a new line, 
-             we can use the newline character \n  inisde double quotes
+             we can use the newline character \n  inisde "double quotes"
              or <br> tag for html contents  */
             // .PHP_EOL similar to new line character (works good for multi os)
 
 
-// we can also use print in place of echo but it takes only single argument 
+// we can also use print in place of echo but it takes only single argument and 
+   // returns 1, so it can be used in expressions 
       // and () is purely optional both for echo and print and better to avoid it 
+
+// Q. Difference between echo and print. 
+
 print 'printPHP' . "\n";
            /* The \n inside the double quotes (" ") is interpreted correctly 
               as a newline character, but the single quotes (' ') around 'printPHP'
