@@ -1,6 +1,8 @@
 <?php
 /* 
-Arrays are special variables that holds multiple values 
+Arrays are special variables that holds multiple values and of any data types even 
+ojects, fuctions and arrays itself.
+
 In PHP, there are three types of arrays:
   Indexed arrays - Arrays with a numeric index
   Associative arrays - Arrays with named keys
@@ -18,7 +20,7 @@ In PHP, there are three types of arrays:
 
 // Simple array of numbers using sq. brace 
 $numbers = [1, 2, 3, 4, 5];
-     // or array function 
+     // or using array function 
 $fruits = array('apple', 'banana');
 
 // outputting arrays 
@@ -28,22 +30,11 @@ var_dump($fruits);
 
 // Outputting values from an array
 echo $numbers[0] . "\n";
-echo $numbers[3] + $numbers[4];
+echo $numbers[3] + $numbers[4] . "\n";
 
 
 
-// We can use print_r or var_dump to see the contents of an array
-// var_dump($numbers);
-
-
-
-
-
-
-/*
-  Associative arrays allow us to use named keys to identify values.
-
-
+// Associative arrays allow us to use named keys to identify values.
 $colors = [
   1 => 'red',
   2 => 'green',
@@ -52,7 +43,7 @@ $colors = [
 echo $colors[1];
 // Strings as keys
 $hex = [
-  'red' => '#f00',
+  'red' => ' #f00',
   'green' => '#0f0',
   'blue' => '#00f',
 ];
@@ -62,38 +53,7 @@ var_dump($hex);
 
 
 
-/*
-  Multi-dimansional arrays are often used to store data in a table format. Arrays within
-   arrays 
 
 
-// Single person
-$person1 = [
-  'first_name' => 'Sudhanshu',
-  'last_name' => 'Sekhar',
-  'email' => 'ssb@gmail.com',
-];
-echo $people1['first_name'];
-
-// Array of people
-$people = [
-  $person1, //   [...$person1]
-  [
-    'first_name' => 'John',
-    'last_name' => 'Doe',
-    'email' => 'john@gmail.com',
-  ],
-  [
-    'first_name' => 'Jane',
-    'last_name' => 'Doe',
-    'email' => 'jane@gmail.com',
-  ],
-];
-var_dump($people);
-
-// Accessing values in a multi-dimensional array
-echo $people[0]['first_name'];
-echo $people[2]['email'];
-*/
 
 

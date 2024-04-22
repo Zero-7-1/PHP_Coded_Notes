@@ -103,3 +103,37 @@ switch ($favcolor) {
   default:
     echo 'Your favorite color is not red, blue, nor green!';
 }
+
+
+?>
+
+<!-- Commonly we output variables using php echo, something like below  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> Conditionals Demo with HTML </title>
+</head>
+<body>
+
+<?php    
+
+$nameOfBook ="'The Alchemist'";
+$hasRead= true;
+
+if ($hasRead) {
+  $message ="You have read $nameOfBook"; 
+} else {
+  $message ="You have not read $nameOfBook";
+} 
+
+?>
+
+
+<h1>
+    <?= $message ?> <!-- shortcut of just echoing variables --> 
+     
+</h1>  
+
+
+</body>
+</html>    
