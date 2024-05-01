@@ -212,3 +212,7 @@ testFun(); // 2 and so on ..
   $a = "Hello";
   $$a = "PHP"; // This creates a variable named $Hello with the value "PHP" 
   echo $$a;
+
+  // Constants 
+  /* Constants are like variables except that once they are defined 
+     they cannot be changed or made undefined */
