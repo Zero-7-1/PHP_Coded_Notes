@@ -99,11 +99,20 @@ to PHP. A common example of using the resource data type is a database call
 
 
 
-     /* Casting allows us to change the data type of an existing variable, 
-   but not by changing the actual value */
+  /* Casting allows us to change the data type of an existing variable, 
+   but not by changing the actual value. 
+   Casting in PHP is done with these statements:
+   (string) - Converts to data type String
+   (int) - Converts to data type Integer
+   (float) - Converts to data type Float
+   (bool) - Converts to data type Boolean
+   (array) - Converts to data type Array
+   (object) - Converts to data type Object 
+   (unset) - Converts to data type NULL */
 
-
-
+   $aString = " 1999";
+   $aString =(int) $aString;
+   var_dump($aString); // outputs as int 
 
 
 
@@ -210,9 +219,85 @@ testFun(); // 2 and so on ..
   A variable variable is defined with two $ signs as prefix */
 
   $a = "Hello";
-  $$a = "PHP"; // This creates a variable named $Hello with the value "PHP" 
+  $$a = "PHP "; // This creates a variable named $Hello with the value "PHP" 
   echo $$a;
 
-  // Constants 
+   // Constants 
   /* Constants are like variables except that once they are defined 
-     they cannot be changed or made undefined */
+     they cannot be changed or made undefined. It is the identifier or the name of 
+     a value that can not be changed during scripts. 
+     Constants are automatically global across the entire script.*/
+
+     // To create a constant, use the define() function.
+     define("GREETING", "Welcome to the hell of PHP");  // two paras name and value
+     echo GREETING;
+
+     // We can also create a constant by using the const keyword.
+     const GREET = " , Do not underestimate PHP";
+     echo GREET;
+     
+     /*  const vs define 
+      const cannot be created inside another block scope, like inside a function 
+      or inside an if statement. 
+      define can be created inside another block scope.
+      define() had a case-insensitive option but is now depricated, so 
+      both are case sensitive. */
+
+      // Constants are used commonly for database credentials like 
+      define('HOST', ' Localhost ');
+      define ("db_name", "dev-db");
+      echo HOST;
+
+
+      // PHP Predefined Constants
+      /* PHP provides a large number of predefined constants to any script
+       which it runs. Many of these constants, however, are created by various 
+       extensions, and will only be present when those extensions are available 
+       We can have many predefined constants like 
+       PHP_VERSION: Returns the version of the PHP 
+       PHP_OS: Returns the name of the operating system PHP is running on
+       PHP_EOL: Returns the end-of-line character sequence used by PHP scripts
+       DIRECTORY_SEPARATOR: Returns the directory separator used in the file system 
+                            (e.g., "/" on Unix-like systems, "" on Windows).
+      __FILE__: Returns the full path and filename of the current file.
+      __DIR__: Returns the directory of the current file.
+
+       */
+
+       
+// Checking PHP version 
+if (version_compare(PHP_VERSION, '7.4.0', '>=')) {
+  // PHP 7.4.0 or newer specific code
+  echo "Running PHP 7.4.0 or newer.";
+} else {
+  // Code for older PHP versions
+  echo "Running PHP version older than 7.4.0.";
+}
+
+
+// Building Platform-Independent File Paths (not fully understood)
+$path = __DIR__ . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'config.php';
+// $path will contain something like '/var/www/html/project/includes/config.php' 
+    // on Unix-like systems
+
+/* __DIR__ and __FILE__  are actually magic constants which can be thought of 
+predefined constants but they not exactly constants at all and they are case 
+insesitive. There are nine magical constants that change depending on where they 
+are used. For example, the value of __LINE__ depends on the line that it's used on 
+in our script. All these "magical" constants are resolved at compile time 
+These magic constants are written with a double underscore at the start and the end,
+ except for the ClassName::class constant.
+ 
+__CLASS__: If used inside a class, the class name is returned.	
+__DIR__:	The directory of the file.	
+__FILE__:	The file name including the full path.	
+__FUNCTION__:	If inside a function, the function name is returned.	
+__LINE__:	The current line number.	
+__METHOD__:	If used inside a function that belongs to a class, both class and 
+            function name is returned.	
+__NAMESPACE__:	If used inside a namespace, the name of the namespace is returned.	
+__TRAIT__	If used inside a trait, the trait name is returned.	
+ClassName::class :	Returns the name of the specified class and the name of the 
+                    namespace, if any.*/
+// will see later in details 
+                
