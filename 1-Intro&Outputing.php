@@ -12,11 +12,11 @@
          People may hate php but even haters love Larvel, the PHP framework 
          PHP is mostly used in companies that are not big corporates   
          Many developers started thier career with PHP
-         so, php is still there and possible will remain for enternity..  */
+         so, php is still there and will remain for enternity..  */
 
 
 
-// basic ways to get output: echo and print
+// Q. WHAT ARE THE BASIC WAYS OF GETTTING OUTPUT IN PHP ? 
 
 
 // Echo - Output strings, numbers, even html
@@ -33,7 +33,7 @@ echo '<h1> Hello PHP </h1>';
    // returns 1, so it can be used in expressions 
       // and () is purely optional both for echo and print and better to avoid it 
 
-// Q. Difference between echo and print. 
+// Q. DIFFERENCE BETWEEN ECHO AND PRINT.  
 
 print 'printPHP' . "\n";
            /* The \n inside the double quotes (" ") is interpreted correctly 
@@ -53,11 +53,16 @@ print_r([1, 2, 3])  . "\n";
 var_dump('Hello') .PHP_EOL;
 var_dump([1, 2, 3]) .PHP_EOL;
 
-   // Difference between print_r and var_dump 
+   // DIFFERENCE BETWEEN PRINT_R AND VAR_R.  
 
 
 // these outputs will look ugly for sure in browser 
 ?>
+  
+
+
+
+
   
 <!-- We can output any HTML that we want within a .php file -->
 <!DOCTYPE html>

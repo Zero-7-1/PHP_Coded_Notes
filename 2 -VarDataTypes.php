@@ -82,23 +82,7 @@ to PHP. A common example of using the resource data type is a database call
 (Details about Resource later) */
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// Q.HOW CASTING IS DONE IN PHP ? 
   /* Casting allows us to change the data type of an existing variable, 
    but not by changing the actual value. 
    Casting in PHP is done with these statements:
@@ -117,11 +101,6 @@ to PHP. A common example of using the resource data type is a database call
 
 
 
-
-
-
-
-
 /* PHP is a Loosely Typed Language::
 PHP automatically associates a data type to the variable, depending on its value. 
 Since the data types are not set in a strict sense, we can do things like adding 
@@ -132,7 +111,7 @@ the data type expected when declaring a function, and by enabling
 the strict requirement, it will throw a "Fatal Error" on a type mismatch. 
 */
 
-
+// Q. EXPALIN VARIABLE SCOPE IN PHP. HOW MANH ARE THERE ? 
 // Variables Scope 
 /* The scope of a variable is the part where the variable can be referenced or used. 
 PHP has 3 different variable scopes:
@@ -150,6 +129,7 @@ static - does not lose its value when program execution leaves the scope
 // global, we already outputed global scoped varibles, those can't be acessed inside 
      // a function , we will see about function in function file 
 
+// Q. HOW CAN WE ACCESS GLOBAL VARIABLE INSIDE A FUNCTION IN PHP ? 
 // 'global' keyword is used to access a global variable from within a function
 
      function testFunction() {
@@ -163,11 +143,12 @@ static - does not lose its value when program execution leaves the scope
      }
      testFunction();
 
-  /* PHP also stores all global variables in an array called $GLOBALS[index]. 
+
+  // Q. WHERE GLOBAL VARIABLES ARE STORED IN PHP ? 
+  /* PHP  stores all global variables in an array called $GLOBALS[index]. 
     The index holds the name of the variable. This array is also accessible from 
     within functions and can be used to update global variables directly. */
-
-  // so alternative to 'global' keyword we can do like this 
+  // so this could be alternative to 'global' keyword, we can do like this 
   
    $number1 = 10;
    $number2 = 15;
@@ -178,11 +159,12 @@ static - does not lose its value when program execution leaves the scope
    mySum();
    echo $number2 . "\n";  // 25 
 
-
+//Q. CAN WE HAVE SAME NAME FOR LOCAL VARIABLES ? WHY ? 
 // We can have local variables with the same name in different functions, 
   // because local variables are only recognized by the function
         // in which they are declared.
 
+// EXPLAIN STATIC KEYWORD IN PHP ? 
 /* 'static' keyword - when a function is completed/executed, all of its variables are 
                      deleted. However, sometimes we want a local variable NOT to 
                      be deleted. We need it for a further job. To do this, 
@@ -196,14 +178,21 @@ function testFun() {
 testFun(); // 1
 testFun(); // 2 and so on .. 
 
-
+// HOW CAN WE CHECK IF A VARIABLE EXITS OR NOT ?
 /* variable lifecycle:
   Before a variable is used, it has no existence. It is unset. 
   It is possible to check if a variable doesn't exist by using isset().
+
   This returns true provided the variable exists and isn't set to null. 
   With the exception of null, the value a variable holds plays no part in 
-  determining whether a variable is set. Setting an existing variable to null 
-  is a way of unsetting a variable. Another way is variables may be destroyed by 
+  determining whether a variable is set. 
+  
+  Setting an existing variable to null 
+  is a way of unsetting a variable. 
+  
+  Q. CAN WE UNSET A EXISTING VARIABLE AND HOW ? 
+  
+  Another way is variables may be destroyed by 
   using the unset().*/
 
   var_dump(isset($a)); // returns false as $a was not set 
@@ -213,6 +202,7 @@ testFun(); // 2 and so on ..
   
 // A variable can be tested for emptiness using empty();
 
+// EXPLAIN WHAT IS VARIABLE VARIABLES ? 
 // PHP Variable variables
 /* In PHP, it is possible to set variable name dynamically. 
   Such a variable uses value of an existing variable as name. 
@@ -222,6 +212,8 @@ testFun(); // 2 and so on ..
   $$a = "PHP "; // This creates a variable named $Hello with the value "PHP" 
   echo $$a;
 
+
+  // Q. EXPLAIN CONSTANTS IN PHP. HOW IT IS CREATED ? 
    // Constants 
   /* Constants are like variables except that once they are defined 
      they cannot be changed or made undefined. It is the identifier or the name of 
@@ -236,6 +228,7 @@ testFun(); // 2 and so on ..
      const GREET = " , Do not underestimate PHP";
      echo GREET;
      
+     // DIFFERENCE BETWEEN DEINE() AND CONST ? 
      /*  const vs define 
       const cannot be created inside another block scope, like inside a function 
       or inside an if statement. 
@@ -248,12 +241,13 @@ testFun(); // 2 and so on ..
       define ("db_name", "dev-db");
       echo HOST;
 
-
-      // PHP Predefined Constants
+       // WHAT ARE PREDEFINED OR MAGIC CONSTANST ? 
+      // PHP Predefined Constants or Magic Constants 
       /* PHP provides a large number of predefined constants to any script
        which it runs. Many of these constants, however, are created by various 
        extensions, and will only be present when those extensions are available 
-       We can have many predefined constants like 
+       We can have many predefined constants like
+
        PHP_VERSION: Returns the version of the PHP 
        PHP_OS: Returns the name of the operating system PHP is running on
        PHP_EOL: Returns the end-of-line character sequence used by PHP scripts
@@ -275,11 +269,13 @@ if (version_compare(PHP_VERSION, '7.4.0', '>=')) {
 }
 
 
-// Building Platform-Independent File Paths (not fully understood)
+// Building Platform-Independent File Paths (?not fully understood)
 $path = __DIR__ . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'config.php';
 // $path will contain something like '/var/www/html/project/includes/config.php' 
     // on Unix-like systems
 
+
+// Q. HOW MANY MAGIC CONSTANTS ARE THERE ? IS PREDEINED AND MAGIC CONSTANT SAME ? 
 /* __DIR__ and __FILE__  are actually magic constants which can be thought of 
 predefined constants but they not exactly constants at all and they are case 
 insesitive. There are nine magical constants that change depending on where they 
