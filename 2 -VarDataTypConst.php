@@ -1,7 +1,5 @@
 <?php
-
-
-/*
+/*  Q. HOW MANY DATA TYPES ARE THERE IN PHP ? AND HOW TO DELCARE IT ? 
  PHP Data Types
 1. String - A string is a series of characters surrounded by quotes
 2. Integer - Whole numbers
@@ -9,18 +7,29 @@
 4. Boolean - true or false
 5. Array - An array is a special variable, which can hold more than one value
 6. Object - Instance of a Class
+
 7. NULL - Empty variable
 8. Resource - A special variable that holds a resource
 
 We can get the data type of any object by using the var_dump()
 PHP has no command for declaring a variable. 
 It is created the moment we first assign a value to it.
+
 But, Variables must be prefixed with $
 
 PHP has some predefined variables (12 predefined variables in php 8) like
-$GLOBALS, Superglobals, $_GET, $_POST etc.. which we shall see  
+$GLOBALS, Superglobals, $_GET, $_POST etc.. which we shall see and very imp.   
 */
 
+/* PHP is a Loosely Typed Language::
+PHP automatically associates a data type to the variable, depending on its value. 
+Since the data types are not set in a strict sense, we can do things like adding 
+a string to an integer without causing an error. */
+echo "5" + 5 . "\n";  // this will output 10
+/* In PHP 7, type declarations were added. This gives an option to specify 
+the data type expected when declaring a function, and by enabling 
+the strict requirement, it will throw a "Fatal Error" on a type mismatch. 
+*/
 
 
 $name = 'Sudhanshu'; // String, Can be in single or double quotes
@@ -36,7 +45,7 @@ echo "$name is $age years old \n";
 
 
 
-   // more about Strings .. 
+   // more about Strings , Methods .. 
 
 // strlen() function returns the length of a string
 echo strlen("Sudhanshu") . "\n";   // outputs 9
@@ -101,17 +110,9 @@ to PHP. A common example of using the resource data type is a database call
 
 
 
-/* PHP is a Loosely Typed Language::
-PHP automatically associates a data type to the variable, depending on its value. 
-Since the data types are not set in a strict sense, we can do things like adding 
-a string to an integer without causing an error. */
-echo "5" + 5 . "\n";  // this will output 10
-/* In PHP 7, type declarations were added. This gives an option to specify 
-the data type expected when declaring a function, and by enabling 
-the strict requirement, it will throw a "Fatal Error" on a type mismatch. 
-*/
 
-// Q. EXPALIN VARIABLE SCOPE IN PHP. HOW MANH ARE THERE ? 
+
+// Q. EXPALIN VARIABLE SCOPE IN PHP. HOW MANY ARE THERE ? 
 // Variables Scope 
 /* The scope of a variable is the part where the variable can be referenced or used. 
 PHP has 3 different variable scopes:
@@ -119,12 +120,10 @@ local -  declared within a function has a LOCAL SCOPE and
          can only be accessed within that function
     
 global - declared outside a function has a GLOBAL SCOPE and 
-        can only be accessed outside a function and not inside a function 
+         can only be accessed outside a function and not inside a function 
 
 static - does not lose its value when program execution leaves the scope
 */
-
-
 
 // global, we already outputed global scoped varibles, those can't be acessed inside 
      // a function , we will see about function in function file 
@@ -201,6 +200,9 @@ testFun(); // 2 and so on ..
   var_dump(isset($bas)); // returns also false 
   
 // A variable can be tested for emptiness using empty();
+
+
+
 
 // EXPLAIN WHAT IS VARIABLE VARIABLES ? 
 // PHP Variable variables
