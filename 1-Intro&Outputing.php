@@ -29,7 +29,7 @@ echo '<h1> Hello PHP </h1>';
    // returns 1, so it can be used in expressions 
       // and () is purely optional both for echo and print and better to avoid it 
 
-// Q. DIFFERENCE BETWEEN ECHO AND PRINT.  
+// Q. DIFFERENCE BETWEEN ECHO AND PRINT. **
 
 print 'printPHP' . "\n";
            /* The \n inside the double quotes (" ") is interpreted correctly 
@@ -49,7 +49,8 @@ print_r([1, 2, 3])  . "\n";
 var_dump('Hello') .PHP_EOL;
 var_dump([1, 2, 3]) .PHP_EOL;
 
-   // DIFFERENCE BETWEEN PRINT_R AND VAR_R.  
+   // Q. WHICH FUNCTION IS USED TO CHECK THE DATA TYPE IN PHP ?
+   // Q. DIFFERENCE BETWEEN PRINT_R AND VAR_DUMB.  
 ?>
 
 <!-- We can output any HTML that we want within a .php file -->

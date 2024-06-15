@@ -1,6 +1,6 @@
 <?php
 /*  Q. HOW MANY DATA TYPES ARE THERE IN PHP ? AND HOW TO DELCARE IT ? 
- PHP Data Types
+    PHP has mainly 8 Data Types
 1. String - A string is a series of characters surrounded by quotes
 2. Integer - Whole numbers
 3. Float - Decimal numbers
@@ -15,10 +15,7 @@ We can get the data type of any object by using the var_dump()
 PHP has no command for declaring a variable. 
 It is created the moment we first assign a value to it.
 
-But, Variables must be prefixed with $
-
-PHP has some predefined variables (12 predefined variables in php 8) like
-$GLOBALS, Superglobals, $_GET, $_POST etc.. which we shall see and very imp.   
+But, Variables must be prefixed with $   
 */
 
 /* PHP is a Loosely Typed Language::
@@ -39,13 +36,14 @@ $gradeAvg = 8.11; //Float
 
 var_dump($hasBrain);  // get the data type of a variable, use the var_dump() function.
 
+
 // Double quotes can be used to add variables to strings
 echo "$name is $age years old \n";
 // We can even use . like +  but double quotes method is easier  
+// Q. HOW CONCATNATION WORKS FOR PHP ? 
 
 
-
-   // more about Strings , Methods .. 
+   // Strings Methods 
 
 // strlen() function returns the length of a string
 echo strlen("Sudhanshu") . "\n";   // outputs 9
@@ -58,7 +56,7 @@ echo strpos("Hello world!", "world") . "\n" ;
 /* returns the character position of the first match that is 6
       If no match is found, it will return FALSE. 
        */
-   //  refer complete string reference on w3schools 
+
 
 // built-in functions that we can use to modify strings
 /*
@@ -80,12 +78,12 @@ echo substr($greet, 0, 5) . "\n"; // Specify the start index and end index
 // Use negative indexes to start the slice from the end of the string
   // The last character has index -1
  
-
+// Q. EXPLAIN NULL IN PHP ? 
 // NULL value - no value assigned to it
   // If a variable is created without a value,
      //  it is automatically assigned a value of NULL.
 
-
+// Q. WHAT IS PHP RESOURCE ? 
 /* PHP Resource - storing reference to functions and resources external 
 to PHP. A common example of using the resource data type is a database call 
 (Details about Resource later) */
@@ -109,10 +107,7 @@ to PHP. A common example of using the resource data type is a database call
 
 
 
-
-
-
-// Q. EXPALIN VARIABLE SCOPE IN PHP. HOW MANY ARE THERE ? 
+// Q. EXPALIN VARIABLE SCOPE IN PHP. HOW MANY ARE THERE ? ** 
 // Variables Scope 
 /* The scope of a variable is the part where the variable can be referenced or used. 
 PHP has 3 different variable scopes:
@@ -126,9 +121,9 @@ static - does not lose its value when program execution leaves the scope
 */
 
 // global, we already outputed global scoped varibles, those can't be acessed inside 
-     // a function , we will see about function in function file 
+     // a function , (we will see about function in function file)
 
-// Q. HOW CAN WE ACCESS GLOBAL VARIABLE INSIDE A FUNCTION IN PHP ? 
+// Q. HOW CAN WE ACCESS GLOBAL VARIABLE INSIDE A FUNCTION IN PHP ? **
 // 'global' keyword is used to access a global variable from within a function
 
      function testFunction() {
@@ -138,16 +133,15 @@ static - does not lose its value when program execution leaves the scope
      //  echo "<h3>Variable inside function is: $name</h3>"; UNDEFINED 
      echo "<h3> Using 'global' keyword with global Variable inside function, we can 
                 access the global varibale that is $name </h3>";
-
      }
      testFunction();
 
 
-  // Q. WHERE GLOBAL VARIABLES ARE STORED IN PHP ? 
+  // Q. WHERE GLOBAL VARIABLES ARE STORED IN PHP ? ** 
   /* PHP  stores all global variables in an array called $GLOBALS[index]. 
     The index holds the name of the variable. This array is also accessible from 
     within functions and can be used to update global variables directly. */
-  // so this could be alternative to 'global' keyword, we can do like this 
+  // so this could be an alternative to 'global' keyword, we can do like this 
   
    $number1 = 10;
    $number2 = 15;
@@ -163,7 +157,7 @@ static - does not lose its value when program execution leaves the scope
   // because local variables are only recognized by the function
         // in which they are declared.
 
-// EXPLAIN STATIC KEYWORD IN PHP ? 
+// EXPLAIN STATIC KEYWORD IN PHP ? ** 
 /* 'static' keyword - when a function is completed/executed, all of its variables are 
                      deleted. However, sometimes we want a local variable NOT to 
                      be deleted. We need it for a further job. To do this, 
@@ -173,23 +167,22 @@ function testFun() {
     echo $staticVAR;
     $staticVAR++;
 }
-
 testFun(); // 1
 testFun(); // 2 and so on .. 
 
-// HOW CAN WE CHECK IF A VARIABLE EXITS OR NOT ?
+// HOW CAN WE CHECK IF A VARIABLE EXITS OR NOT ? **
 /* variable lifecycle:
   Before a variable is used, it has no existence. It is unset. 
   It is possible to check if a variable doesn't exist by using isset().
 
   This returns true provided the variable exists and isn't set to null. 
-  With the exception of null, the value a variable holds plays no part in 
+  With the exception of null, the value a variable plays no part in 
   determining whether a variable is set. 
   
   Setting an existing variable to null 
   is a way of unsetting a variable. 
   
-  Q. CAN WE UNSET A EXISTING VARIABLE AND HOW ? 
+  Q. CAN WE UNSET A EXISTING VARIABLE AND HOW ? **
   
   Another way is variables may be destroyed by 
   using the unset().*/
@@ -204,7 +197,7 @@ testFun(); // 2 and so on ..
 
 
 
-// EXPLAIN WHAT IS VARIABLE VARIABLES ? 
+// EXPLAIN WHAT IS VARIABLE VARIABLES ? ** 
 // PHP Variable variables
 /* In PHP, it is possible to set variable name dynamically. 
   Such a variable uses value of an existing variable as name. 
@@ -212,10 +205,66 @@ testFun(); // 2 and so on ..
 
   $a = "Hello";
   $$a = "PHP "; // This creates a variable named $Hello with the value "PHP" 
-  echo $$a;
+  echo $Hello; 
 
 
-  // Q. EXPLAIN CONSTANTS IN PHP. HOW IT IS CREATED ? 
+/*
+Q. EXPLAIN WHAT ARE PREDEFINED VARIBALES IN PHP ? 
+PHP has some predefined variables (12 predefined variables in php 8) like
+$GLOBALS, Superglobals - $_GET, $_POST etc.
+
+Predefined variables in PHP, also simply known as superglobals, are built-in 
+variables that are always accessible, regardless of scope. We can access them from 
+any function, class or file without having to do anything special.
+
+*/
+
+// Q. EPLAIN WHAT IS $_SERVER superglobals ? 
+/* 
+$_SERVER is a PHP super global variable or array which holds information 
+about headers, paths, and script locations. The datas provided by $_SERVER will
+quit useful while writing scripts or writing apps like getting document root, 
+PHP_SELF for submiting form to the same file, REQUEST_URI, HTTP_USER_AGENT etc.
+We shall mention some inportant elements or indices of $_SERVER and also we
+can refer internet when needed.  
+*/
+
+echo $_SERVER['PHP_SELF'];
+/*The filename of the currently executing script, relative to the document root.
+For instance, $_SERVER['PHP_SELF'] in a script at the address 
+ht#p://example.com/foo/bar.php would be /foo/bar.php. 
+The __FILE__ constant contains the full path and filename of the current 
+(i.e. included) file. (later down in contants for details) */
+// we shall see more later 
+
+
+// $_GET & $_POST Superglobals **
+/* 
+We can pass data through urls and forms using the $_GET and $_POST.
+$_GET contains an array of variables received via the HTTP GET method.
+There are two main ways to send variables via the HTTP GET method:
+1. Query strings in the URL
+2. HTML Forms
+Q. WHAT IS QUERY STRING IN THE URL ? 
+   A query string is data added at the end of a URL. In a link, everything after 
+   the ? sign is part of the query string
+
+*/
+?> <!-- Ending this so that we work on little html 
+         I know outputs in browser can be very confusing for viewers other than me :)
+     --> 
+<a href="<?php echo $_SERVER['PHP_SELF']; ?>?singleString=">  Click me </a>
+         <!-- Consider this as an URL and here we could pass variables or 
+          data through an URL -->
+
+
+
+
+
+
+
+<?php 
+  // Q. EXPLAIN CONSTANTS IN PHP. HOW IT IS CREATED ? **
    // Constants 
   /* Constants are like variables except that once they are defined 
      they cannot be changed or made undefined. It is the identifier or the name of 
@@ -230,7 +279,7 @@ testFun(); // 2 and so on ..
      const GREET = " , Do not underestimate PHP";
      echo GREET;
      
-     // DIFFERENCE BETWEEN DEINE() AND CONST ? 
+     // DIFFERENCE BETWEEN DEINE() AND CONST ? **
      /*  const vs define 
       const cannot be created inside another block scope, like inside a function 
       or inside an if statement. 
@@ -242,6 +291,7 @@ testFun(); // 2 and so on ..
       define('HOST', ' Localhost ');
       define ("db_name", "dev-db");
       echo HOST;
+      // We will know this clearly when we do project
 
        // WHAT ARE PREDEFINED OR MAGIC CONSTANST ? 
       // PHP Predefined Constants or Magic Constants 
@@ -298,4 +348,4 @@ __TRAIT__	If used inside a trait, the trait name is returned.
 ClassName::class :	Returns the name of the specified class and the name of the 
                     namespace, if any.*/
 // will see later in details 
-                
+      ?>          
