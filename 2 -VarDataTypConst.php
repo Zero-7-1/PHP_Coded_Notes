@@ -40,10 +40,10 @@ var_dump($hasBrain);  // get the data type of a variable, use the var_dump() fun
 // Double quotes can be used to add variables to strings
 echo "$name is $age years old \n";
 // We can even use . like +  but double quotes method is easier  
-// Q. HOW CONCATNATION WORKS FOR PHP ? 
+// Q. HOW CONCATNATION WORKS FOR PHP ? **
 
 
-   // Strings Methods 
+   // Strings Methods Q. WHAT ARE VARIOUS STRING METHODS IN PHP ?  
 
 // strlen() function returns the length of a string
 echo strlen("Sudhanshu") . "\n";   // outputs 9
@@ -78,18 +78,18 @@ echo substr($greet, 0, 5) . "\n"; // Specify the start index and end index
 // Use negative indexes to start the slice from the end of the string
   // The last character has index -1
  
-// Q. EXPLAIN NULL IN PHP ? 
+// Q. EXPLAIN NULL IN PHP ? ***
 // NULL value - no value assigned to it
   // If a variable is created without a value,
      //  it is automatically assigned a value of NULL.
 
-// Q. WHAT IS PHP RESOURCE ? 
+// Q. WHAT IS PHP RESOURCE ? ***
 /* PHP Resource - storing reference to functions and resources external 
 to PHP. A common example of using the resource data type is a database call 
 (Details about Resource later) */
 
 
-// Q.HOW CASTING IS DONE IN PHP ? 
+// Q.HOW CASTING IS DONE IN PHP ? **
   /* Casting allows us to change the data type of an existing variable, 
    but not by changing the actual value. 
    Casting in PHP is done with these statements:
@@ -107,7 +107,7 @@ to PHP. A common example of using the resource data type is a database call
 
 
 
-// Q. EXPALIN VARIABLE SCOPE IN PHP. HOW MANY ARE THERE ? ** 
+// Q. EXPALIN VARIABLE SCOPE IN PHP. HOW MANY ARE THERE ? ***
 // Variables Scope 
 /* The scope of a variable is the part where the variable can be referenced or used. 
 PHP has 3 different variable scopes:
@@ -123,7 +123,7 @@ static - does not lose its value when program execution leaves the scope
 // global, we already outputed global scoped varibles, those can't be acessed inside 
      // a function , (we will see about function in function file)
 
-// Q. HOW CAN WE ACCESS GLOBAL VARIABLE INSIDE A FUNCTION IN PHP ? **
+// Q. HOW CAN WE ACCESS GLOBAL VARIABLE INSIDE A FUNCTION IN PHP ? ***
 // 'global' keyword is used to access a global variable from within a function
 
      function testFunction() {
@@ -152,12 +152,12 @@ static - does not lose its value when program execution leaves the scope
    mySum();
    echo $number2 . "\n";  // 25 
 
-//Q. CAN WE HAVE SAME NAME FOR LOCAL VARIABLES ? WHY ? 
+//Q. CAN WE HAVE SAME NAME FOR LOCAL VARIABLES ? WHY ? *
 // We can have local variables with the same name in different functions, 
   // because local variables are only recognized by the function
         // in which they are declared.
 
-// EXPLAIN STATIC KEYWORD IN PHP ? ** 
+// EXPLAIN STATIC KEYWORD IN PHP ? ***
 /* 'static' keyword - when a function is completed/executed, all of its variables are 
                      deleted. However, sometimes we want a local variable NOT to 
                      be deleted. We need it for a further job. To do this, 
@@ -170,7 +170,7 @@ function testFun() {
 testFun(); // 1
 testFun(); // 2 and so on .. 
 
-// HOW CAN WE CHECK IF A VARIABLE EXITS OR NOT ? **
+// HOW CAN WE CHECK IF A VARIABLE EXITS OR NOT ? ***
 /* variable lifecycle:
   Before a variable is used, it has no existence. It is unset. 
   It is possible to check if a variable doesn't exist by using isset().
@@ -197,7 +197,7 @@ testFun(); // 2 and so on ..
 
 
 
-// EXPLAIN WHAT IS VARIABLE VARIABLES ? ** 
+// EXPLAIN WHAT IS VARIABLE VARIABLES ? *** 
 // PHP Variable variables
 /* In PHP, it is possible to set variable name dynamically. 
   Such a variable uses value of an existing variable as name. 
@@ -209,7 +209,7 @@ testFun(); // 2 and so on ..
 
 
 /*
-Q. EXPLAIN WHAT ARE PREDEFINED VARIBALES IN PHP ? 
+Q. EXPLAIN WHAT ARE PREDEFINED VARIBALES IN PHP ? ***
 PHP has some predefined variables (12 predefined variables in php 8) like
 $GLOBALS, Superglobals - $_GET, $_POST etc.
 
@@ -219,7 +219,7 @@ any function, class or file without having to do anything special.
 
 */
 
-// Q. EPLAIN WHAT IS $_SERVER superglobals ? 
+// Q. EPLAIN WHAT IS $_SERVER superglobals ? **
 /* 
 $_SERVER is a PHP super global variable or array which holds information 
 about headers, paths, and script locations. The datas provided by $_SERVER will
@@ -234,13 +234,17 @@ echo $_SERVER['PHP_SELF'];
 For instance, $_SERVER['PHP_SELF'] in a script at the address 
 ht#p://example.com/foo/bar.php would be /foo/bar.php. 
 The __FILE__ constant contains the full path and filename of the current 
-(i.e. included) file. (later down in contants for details) */
-// we shall see more later 
+(i.e. included) file. (later down in constants for details) */
 
 
-// $_GET & $_POST Superglobals **
+
+
+
+// $_GET & $_POST Superglobals *** Q. EXPLAIN ABOUT $_GET AND $_POST SUPERGLOBALS 
 /* 
-We can pass data through urls and forms using the $_GET and $_POST.
+We can pass or get data through urls and forms using the $_GET and with $_POST
+we could get data only through froms.
+
 $_GET contains an array of variables received via the HTTP GET method.
 There are two main ways to send variables via the HTTP GET method:
 1. Query strings in the URL
@@ -251,15 +255,28 @@ Q. WHAT IS QUERY STRING IN THE URL ?
 
 */
 ?> <!-- Ending this so that we work on little html 
-         I know outputs in browser can be very confusing for viewers other than me :)
+         I know outputs in browser can be very confusing  :)
      --> 
-<a href="<?php echo $_SERVER['PHP_SELF']; ?>?singleString=">  Click me </a>
+
+
+ 
+<a href="<?php echo $_SERVER['PHP_SELF']; ?>?singleString=Sudha">  Click me </a>
          <!-- Consider this as an URL and here we could pass variables or 
           data through an URL -->
+<?php 
+echo $_GET['singleString']; 
+?>
 
-
-
-
+<!-- Our form can be either get request or post request, by default it gonna be 
+ get   -->
+<form action="<?php echo $_SERVER['PHP_SELF']; ?>">
+<div>
+  <label for="name"> Name: </label>
+  <input type="text" name="name">
+</div>
+<input type="submit" value="Submit" name="submit">
+</form>
+<?php ?> 
 
 
 
