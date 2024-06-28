@@ -10,9 +10,9 @@
    even though many think that php is not worthful language mainly due to
    meme culture, it is still used widely and is alive. 
 */
+  
 
-
-// Q. WHAT ARE THE BASIC WAYS OF GETTTING OUTPUT IN PHP ? 
+// Q. WHAT ARE THE BASIC WAYS OF GETTTING OUTPUT IN PHP  ? 
 
 
 // Echo - Output strings, numbers, html
