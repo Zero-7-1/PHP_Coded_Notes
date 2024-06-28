@@ -189,7 +189,7 @@ testFun(); // 2 and so on ..
 
   var_dump(isset($a)); // returns false as $a was not set 
   
-  $bas = null;
+  $bas = null;  
   var_dump(isset($bas)); // returns also false 
   
 // A variable can be tested for emptiness using empty();
@@ -208,6 +208,10 @@ testFun(); // 2 and so on ..
   echo $Hello; 
 
 
+
+/* -------------------------------------------PREDEFINED VARIABLES OR SUPERGLOBALS */
+
+
 /*
 Q. EXPLAIN WHAT ARE PREDEFINED VARIBALES IN PHP ? ***
 PHP has some predefined variables (12 predefined variables in php 8) like
@@ -222,19 +226,22 @@ any function, class or file without having to do anything special.
 // Q. EPLAIN WHAT IS $_SERVER superglobals ? **
 /* 
 $_SERVER is a PHP super global variable or array which holds information 
-about headers, paths, and script locations. The datas provided by $_SERVER will
-quit useful while writing scripts or writing apps like getting document root, 
-PHP_SELF for submiting form to the same file, REQUEST_URI, HTTP_USER_AGENT etc.
-We shall mention some inportant elements or indices of $_SERVER and also we
-can refer internet when needed.  
-*/
+about the web server like header, script locations etc. Additionally there are 
+various elements that could go inside $_SERVER like:
+$_SERVER['PHP_SELF'] - Returns the filename of the currently executing script
+$_SERVER['SERVER_ADDR'] -	Returns the IP address of the host server 
+$_SERVER['REQUEST_METHOD'] - Returns the request method used to access the page 
+$_SERVER['REMOTE_ADDR']	- Returns the IP address from where the user is viewing 
+                          the current page
+$_SERVER['SERVER_PORT']	- Returns the port on the server machine
+etc. (refer internet when needed)
 
+*/
+// var_dump($_SERVER); by this we could see all info but we see this later clearly 
 echo $_SERVER['PHP_SELF'];
 /*The filename of the currently executing script, relative to the document root.
 For instance, $_SERVER['PHP_SELF'] in a script at the address 
-ht#p://example.com/foo/bar.php would be /foo/bar.php. 
-The __FILE__ constant contains the full path and filename of the current 
-(i.e. included) file. (later down in constants for details) */
+ht#p://example.com/foo/bar.php would be /foo/bar.php.  */
 
 
 
@@ -255,28 +262,55 @@ Q. WHAT IS QUERY STRING IN THE URL ?
 
 */
 ?> <!-- Ending this so that we work on little html 
-         I know outputs in browser can be very confusing  :)
+         I know outputs in browser can be very confusing but with hard attention
+         and liitle focus it can be adjusted 
      --> 
 
-
- 
-<a href="<?php echo $_SERVER['PHP_SELF']; ?>?singleString=Sudha">  Click me </a>
-         <!-- Consider this as an URL and here we could pass variables or 
-          data through an URL -->
+<a href="<?php echo $_SERVER['PHP_SELF']; ?>?sname=sname"> Click Me </a>
+<!-- This link will bring to our own current file, now we could pass variables or any
+ data through a URL, for this we will put a ? near php's ending tag which would 
+ be same as going up to address bar and putting ? there after php, we could 
+ also verify this  --> 
 <?php 
-echo $_GET['singleString']; 
-?>
+if(isset($_POST['Submit'])) {
+  echo $_POST['sname']; 
+}
+?> 
 
-<!-- Our form can be either get request or post request, by default it gonna be 
- get   -->
-<form action="<?php echo $_SERVER['PHP_SELF']; ?>">
-<div>
-  <label for="name"> Name: </label>
-  <input type="text" name="name">
-</div>
-<input type="submit" value="Submit" name="submit">
+<form action="<?php echo $_SERVER['PHP_SELF']; ?>" 
+  method="POST"> 
+<!-- action is the file that we want this form to be submitted, here we would 
+     use our php self and another thing to note that our form could be either 
+     get request or post request and by default it gonna be get  -->
+ <div>
+  <label for="pname"> Enter Something: </label>
+  <input type="text" name="sname">  
+  <!--- Since we have name attribute as sname which had been used previously 
+        it should replace $_GET['sname'] when form is submited to whatever
+        written in from instead of  sname but the problem with get method
+        is that anything with our name attribute is displayed in URL
+        so post method is more secure for submiting data   --->
+ </div>
+ <input type="submit" value="Submit" name="submit"> 
 </form>
-<?php ?> 
+<!--- 
+A note for what will happen when we use post instead of get so we need just change 
+the GET to POST and that it but at refresh it gonna give error which will be gone 
+after submiting form which will be resolved using isset fucntion 
+(Note we will need a practice on forms later + additionally forms using php can have 
+security issues which we will see to resolve by sanitising later in dedicated form
+project)
+--->
+
+
+
+
+
+
+
+
+
+
 
 
 
