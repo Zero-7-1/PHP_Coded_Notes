@@ -277,8 +277,7 @@ if(isset($_POST['Submit'])) {
 }
 ?> 
 
-<form action="<?php echo $_SERVER['PHP_SELF']; ?>" 
-  method="POST"> 
+<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST"> 
 <!-- action is the file that we want this form to be submitted, here we would 
      use our php self and another thing to note that our form could be either 
      get request or post request and by default it gonna be get  -->
