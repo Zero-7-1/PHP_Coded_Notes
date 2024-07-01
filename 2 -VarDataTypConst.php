@@ -106,6 +106,7 @@ to PHP. A common example of using the resource data type is a database call
    var_dump($aString); // outputs as int 
 
 
+/* ------------------------------------------------------------PHP VARIABLES SCOPE */
 
 // Q. EXPALIN VARIABLE SCOPE IN PHP. HOW MANY ARE THERE ? ***
 // Variables Scope 
@@ -195,7 +196,7 @@ testFun(); // 2 and so on ..
 // A variable can be tested for emptiness using empty();
 
 
-
+/* --------------------------------------------------------------VARIABLE VARIABLES */
 
 // EXPLAIN WHAT IS VARIABLE VARIABLES ? *** 
 // PHP Variable variables
@@ -249,73 +250,81 @@ ht#p://example.com/foo/bar.php would be /foo/bar.php.  */
 
 // $_GET & $_POST Superglobals *** Q. EXPLAIN ABOUT $_GET AND $_POST SUPERGLOBALS 
 /* 
-We can pass or get data through urls and forms using the $_GET and with $_POST
-we could get data only through froms.
+We can pass or get data through urls and forms using the $_GET and with $_POST we 
+could get data only through froms.
 
 $_GET contains an array of variables received via the HTTP GET method.
 There are two main ways to send variables via the HTTP GET method:
 1. Query strings in the URL
 2. HTML Forms
-Q. WHAT IS QUERY STRING IN THE URL ? 
+Q. WHAT EXACTLY IS A QUERY STRING IN THE URL ? 
    A query string is data added at the end of a URL. In a link, everything after 
    the ? sign is part of the query string
 
-*/
-?> <!-- Ending this so that we work on little html 
-         I know outputs in browser can be very confusing but with hard attention
-         and liitle focus it can be adjusted 
-     --> 
+on the otherhand 
+$_POST contains an array of variables received via the HTTP POST method. 
+There are two main ways to send variables via the HTTP Post method:
+1. HTML forms
+2. JavaScript HTTP requests (we shall see this later how http request are sent in js)
 
-<a href="<?php echo $_SERVER['PHP_SELF']; ?>?sname=sname"> Click Me </a>
-<!-- This link will bring to our own current file, now we could pass variables or any
- data through a URL, for this we will put a ? near php's ending tag which would 
- be same as going up to address bar and putting ? there after php, we could 
- also verify this  --> 
-<?php 
-if(isset($_POST['Submit'])) {
-  echo $_POST['sname']; 
-}
+*/
 ?> 
 
-<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST"> 
-<!-- action is the file that we want this form to be submitted, here we would 
-     use our php self and another thing to note that our form could be either 
-     get request or post request and by default it gonna be get  -->
- <div>
-  <label for="pname"> Enter Something: </label>
-  <input type="text" name="sname">  
-  <!--- Since we have name attribute as sname which had been used previously 
-        it should replace $_GET['sname'] when form is submited to whatever
-        written in from instead of  sname but the problem with get method
-        is that anything with our name attribute is displayed in URL
-        so post method is more secure for submiting data   --->
- </div>
- <input type="submit" value="Submit" name="submit"> 
+
+<br> 
+<br>
+<br>
+
+
+<!-- Suppose we have a form and we want data of our form to be submited to somewhere
+ after submit button is clicked, lets say to another file so that we could save it in 
+ database or further proccess it (here in our example we will pass data to our first 
+ php file no.1 that is Intro&Outputing, refer that) 
+--> 
+<!-- 
+<form action="1-Intro&Outputing.php" method="get">
+ Type Something here for get: <input type="text" name="atext"> 
+ <input type="submit" name="ssubmit"> 
 </form>
-<!--- 
-A note for what will happen when we use post instead of get so we need just change 
-the GET to POST and that it but at refresh it gonna give error which will be gone 
-after submiting form which will be resolved using isset fucntion 
-(Note we will need a practice on forms later + additionally forms using php can have 
-security issues which we will see to resolve by sanitising later in dedicated form
-project)
---->
+<br>
+--> 
+
+<form action="1-Intro&Outputing.php" method="post">
+ Type Something here for post: <input type="text" name="btext"> 
+ <input type="submit" name="xsubmit"> 
+</form>
+
+<!-- 
+When we use get method which is by default the data is also passed to the URL which we
+could see in our 1-Intro&Outputing file,
+in the otherhand if we use post instead of get then data is no longer visible in
+URL bar which is more secure and recommended to be used for forms and get is used for 
+search bar for searching things 
+Note: Forms and its Validations are very important and we will see dedicated project 
+for it. 
+Q. WHAT IS $_REQUEST superglobal ? **
+   $_REQUEST super global variable contains submitted form data both get and post
+   along with cookie data. (About cookie later soon)
+   or in other words $_REQUEST is an array containing data from 
+   $_GET, $_POST, and $_COOKIE.
+
+Note: There are many other superglobals such as $_COOKIE, $_SESSION etc. which we will
+see later.
+-->
+
+
+
+<br> 
+<br>
+<br>
 
 
 
 
-
-
-
-
-
-
-
-
-
+<!--                         -----------------------CONSTANTS AND MAGIC CONSTANTS -->
 <?php 
   // Q. EXPLAIN CONSTANTS IN PHP. HOW IT IS CREATED ? **
-   // Constants 
+
   /* Constants are like variables except that once they are defined 
      they cannot be changed or made undefined. It is the identifier or the name of 
      a value that can not be changed during scripts. 
@@ -329,38 +338,57 @@ project)
      const GREET = " , Do not underestimate PHP";
      echo GREET;
      
-     // DIFFERENCE BETWEEN DEINE() AND CONST ? **
+     // DIFFERENCE BETWEEN DEINE() AND CONST ? ***
      /*  const vs define 
       const cannot be created inside another block scope, like inside a function 
-      or inside an if statement. 
-      define can be created inside another block scope.
-      define() had a case-insensitive option but is now depricated, so 
-      both are case sensitive. */
+      or inside an if statement
+      define can be created inside another block scope, so mostly we would use define
+     */
 
+     echo "<br>";
+     echo "<br>";
       // Constants are used commonly for database credentials like 
       define('HOST', ' Localhost ');
       define ("db_name", "dev-db");
       echo HOST;
-      // We will know this clearly when we do project
+      echo db_name;
+      // We will know these things clearly when look to projects
 
-       // WHAT ARE PREDEFINED OR MAGIC CONSTANST ? 
-      // PHP Predefined Constants or Magic Constants 
-      /* PHP provides a large number of predefined constants to any script
-       which it runs. Many of these constants, however, are created by various 
-       extensions, and will only be present when those extensions are available 
-       We can have many predefined constants like
+
+
+
+  
+  // Q. WHAT ARE PREDEFINED OR MAGIC CONSTANST ? *** 
+  /* PHP provides a large number of predefined constants called magic constants, they
+     are called magic constants as they change value depending upon where they are
+     used, these constants are written with double underscore at the start and end, 
+     some magic constants are associated with oops.
+     Note: The magic constants are case-insensitive, meaning __LINE__ returns 
+     the same as __line__. This is little different from main constants where
+     case defining case-insensitive constants was deprecated in PHP 7.3. 
+     PHP 8.0 accepts only false, the value true will produce a warning (the third
+     value of contants)
 
        PHP_VERSION: Returns the version of the PHP 
        PHP_OS: Returns the name of the operating system PHP is running on
-       PHP_EOL: Returns the end-of-line character sequence used by PHP scripts
-       DIRECTORY_SEPARATOR: Returns the directory separator used in the file system 
-                            (e.g., "/" on Unix-like systems, "" on Windows).
-      __FILE__: Returns the full path and filename of the current file.
-      __DIR__: Returns the directory of the current file.
+      
+      __LINE__:	Returns the current line number
+      __FILE__: Returns the full path and filename of the current file
+      __DIR__: Returns the directory of the current file
+      __FUNCTION__:	If inside a function, the function name is returned
+
+      __CLASS__: If used inside a class, the class name is returned (OOPs)
+      __METHOD__:	If used inside a function that belongs to a class, both class and 
+                  function name is returned (OOPs)
+      __NAMESPACE__: If used inside a namespace, the name of the namespace is 
+                     returned	(OOPs)
+      __TRAIT__: If used inside a trait, the trait name is returned (OOPs)
 
        */
 
-       
+echo "<br>";
+echo "<br>";
+
 // Checking PHP version 
 if (version_compare(PHP_VERSION, '7.4.0', '>=')) {
   // PHP 7.4.0 or newer specific code
@@ -371,31 +399,5 @@ if (version_compare(PHP_VERSION, '7.4.0', '>=')) {
 }
 
 
-// Building Platform-Independent File Paths (?not fully understood)
-$path = __DIR__ . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'config.php';
-// $path will contain something like '/var/www/html/project/includes/config.php' 
-    // on Unix-like systems
 
-
-// Q. HOW MANY MAGIC CONSTANTS ARE THERE ? IS PREDEINED AND MAGIC CONSTANT SAME ? 
-/* __DIR__ and __FILE__  are actually magic constants which can be thought of 
-predefined constants but they not exactly constants at all and they are case 
-insesitive. There are nine magical constants that change depending on where they 
-are used. For example, the value of __LINE__ depends on the line that it's used on 
-in our script. All these "magical" constants are resolved at compile time 
-These magic constants are written with a double underscore at the start and the end,
- except for the ClassName::class constant.
- 
-__CLASS__: If used inside a class, the class name is returned.	
-__DIR__:	The directory of the file.	
-__FILE__:	The file name including the full path.	
-__FUNCTION__:	If inside a function, the function name is returned.	
-__LINE__:	The current line number.	
-__METHOD__:	If used inside a function that belongs to a class, both class and 
-            function name is returned.	
-__NAMESPACE__:	If used inside a namespace, the name of the namespace is returned.	
-__TRAIT__	If used inside a trait, the trait name is returned.	
-ClassName::class :	Returns the name of the specified class and the name of the 
-                    namespace, if any.*/
-// will see later in details 
-      ?>          
+?>          

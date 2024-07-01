@@ -50,7 +50,28 @@ var_dump('Hello') .PHP_EOL;
 var_dump([1, 2, 3]) .PHP_EOL;
 
    // Q. WHICH FUNCTION IS USED TO CHECK THE DATA TYPE IN PHP ?
-   // Q. DIFFERENCE BETWEEN PRINT_R AND VAR_DUMB.  
+   // Q. DIFFERENCE BETWEEN PRINT_R AND VAR_DUMB. 
+
+echo "<br>";  
+echo "<br>"; 
+ 
+// Showing form data from 2-VarDataTypConst in the form of array 
+// get
+/*
+echo "<pre>";   
+print_r($_GET);
+echo "</pre>";
+echo $_GET['atext'];
+*/
+
+// post 
+echo "<pre>";   
+print_r($_POST);
+echo "</pre>";
+echo $_POST['btext'];
+
+echo "<br>"; 
+echo $_REQUEST['btext']; // request superglobal which has all form data
 ?>
 
 <!-- We can output any HTML that we want within a .php file -->
