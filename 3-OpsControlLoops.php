@@ -174,7 +174,7 @@ echo "<br>";
 echo "<br>";
 
 // if...elseif...else statement
-$t = date('H'); // hour
+$t = date('H'); // using date object we could get hour
 if ($t < 12) {
   echo 'Have a good morning!';
 } elseif ($t < 17) {
@@ -183,13 +183,16 @@ if ($t < 12) {
   echo 'Have a good evening!';
 }
 
-
+echo "<br>";
+echo "<br>";
 
 
 // Checking if an array is empty or not
-// The isset() function will generate a warning or e-notice when the variable does 
- // not exists. The empty() function will not generate any warning or 
- // e-notice when the variable does not exists.
+/*
+We have used here empty() which returns true if the variable is 
+considered empty, and false otherwise. The ! (logical NOT) operator negates this 
+result.
+*/
 
 $posts = [];
 
@@ -199,11 +202,26 @@ if (!empty($posts[0])) {
   echo 'There are no posts';
 }
 
+echo "<br>";
+echo "<br>";
+
+// Shorthand if Statements or Ternary Operators or Conditional Expressions
+// if in one line
+$a = 5;
+if ($a < 10) $b = "a is inded smaller";
+echo $b;
+
+// if..else in one line
+$ab = 13;
+$ba = $ab < 10 ? "this side runs if true" : " but ab is greater";
+echo $ba;
+
+echo "<br>";
+echo "<br>";
 
 
 
-
-/* -------- Switch Statements ------- */
+// Switch Statements are better alternatives to complex nested if..else statements 
 
 $favcolor = 'red';
 
@@ -221,36 +239,112 @@ switch ($favcolor) {
     echo 'Your favorite color is not red, blue, nor green!';
 }
 
+/*Now see, these concepts are similar to all programming languages so 
+  obviously we need break to stop exceuting when case is matched and we 
+  use default to the run code if all cases fails */
 
 ?>
 
-<!-- Commonly we output variables using php echo, something like below  -->
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title> Conditionals Demo with HTML </title>
+  <title> OpsControlLoops </title>
 </head>
 <body>
 
+<!--  note that we can use php in between htmls to write some logic -->
 <?php    
-
 $nameOfBook ="'The Alchemist'";
-$hasRead= true;
+$hasRead= true; // we have read this boom 
 
 if ($hasRead) {
   $message ="You have read $nameOfBook"; 
 } else {
   $message ="You have not read $nameOfBook";
 } 
-
 ?>
 
-
 <h1>
-    <?= $message ?> <!-- shortcut of just echoing variables --> 
-     
+    <?= $message ?> <!-- a shortcut of just echoing variables -->  
 </h1>  
-
-
 </body>
 </html>    
+
+<?php
+// Now we would look over looping 
+
+// while loop - repeats code as long as condition is true 
+/* Lets consider this example 
+Using a while loop, we can ensure that each comment is processed and displayed, 
+even if the number of comments is unknown 
+*/
+
+$comments = [
+  "This is the first comment!",
+  "Here is another comment.",
+  "Yet another insightful comment.",
+  "This is the last comment."
+];    // generally we would fetch this from database, we would cover this in db part
+
+$index = 0; // Initialize a counter
+
+$totalComments = count($comments); // count() can give total number of comments 
+
+// Using while loop to display each comment
+while ($index < $totalComments) {
+  echo "Comment: " . $comments[$index] . "<br>";
+  $index++; // Do not forget to Increment the counter other it will run forever 
+}
+// If there are no comments
+if ($totalComments === 0) {
+  echo "There are no comments.";
+}
+
+
+/*
+do..while works bit different it will always execute the block of code at least once, 
+it will then check the condition, and repeat the loop while the specified condition is
+true lets take same example and use do while 
+*/
+
+
+echo "<br>";
+echo "<br>";
+
+
+
+// Array of comments
+$comments2 = [
+
+];
+
+// Initialize a counter
+$index2 = 0;
+
+// Get the total number of comments
+$totalComments2 = count($comments2);
+
+// Use a do-while loop to display each comment
+do {
+  if ($totalComments2 === 0) {
+      echo "There are no comments.";
+      break; // Exit the loop if there are no comments
+  }
+  
+  echo "Comment: " . $comments2[$index2] . "<br>";
+  $index2++; // always rememeber to include increment inside do block at last 
+} 
+while ($index2 < $totalComments2);
+
+
+
+
+// for loop 
+
+
+
+?>
