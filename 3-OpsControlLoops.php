@@ -98,15 +98,43 @@ xor	- Xor	$x xor $y	True if either $x or $y is true, but not both
                          Introduced in PHP 7
 */
 
+// Operator Percedence
+/*
+Operator precedence determines the order in which different operators in an expression 
+are evaluated. Operators with higher precedence are evaluated before operators with 
+lower precedence. When operators have the same precedence, their associativity 
+determines the order of evaluation.
+Left-associative: Operators are evaluated from left to right.
+Right-associative: Operators are evaluated from right to left.
 
+(Refer to this table)
+Operators                                 | Description                                       | Associativity
+ *   ----------------------------------------- | ------------------------------------------------- | -------------
+ *   clone, new                                | Clone and new                                     | None
+ *   **                                        | Exponentiation                                    | Right
+ *   ++, --, ~, (int), (bool), etc.            | Increment/Decrement, Type Casting, etc.           | Right
+ *   instanceof                                | Type check                                        | None
+ *   !                                         | Logical NOT                                       | Right
+ *   *, /, %                                   | Multiplication, Division, Modulus                 | Left
+ *   +, -, .                                   | Addition, Subtraction, Concatenation              | Left
+ *   <<, >>                                    | Bitwise Shift                                     | Left
+ *   <, <=, >, >=                              | Comparison                                        | None
+ *   ==, !=, ===, !==, <=>                     | Equality/Inequality/Spaceship                     | None
+ *   &                                         | Bitwise AND                                       | Left
+ *   ^                                         | Bitwise XOR                                       | Left
+ *   |                                         | Bitwise OR                                        | Left
+ *   &&                                        | Logical AND                                       | Left
+ *   ||                                        | Logical OR                                        | Left
+ *   ??                                        | Null coalescing                                   | Left
+ *   ? :                                       | Ternary                                           | Right
+ *   =                                         | Assignment                                        | Right
+ *   +=, -=, *=, /=, .=, %=, etc.              | Combined Assignment                               | Right
+ *   and                                       | Logical AND                                       | Left
+ *   xor                                       | Logical XOR                                       | Left
+ *   or                                        | Logical OR                                        | Left
 
-
-
-
-
-
-
-
+ We could study about bitwise operators some time later in our revison journey 
+*/
 
 
 
@@ -119,56 +147,18 @@ programming language.
 Now again we can say there are two types of control flow satements or 
 we can achieve control flow in two ways
 
-1. Conditional Statements (if, else if, switch)- As the name suggests these
-statements performs actions based on certain conditions.
+1. Conditional Statements (if, if..else, if..else if..else, switch)- 
+   As the name suggests these statements performs actions based on certain conditions.
 
-2. Looping Statements(for, while, do while, for...in, for...of)- These 
-provides a way for iteration that is repeating something until a condtion is 
-met. */
+2. Looping Statements(for, while, do while, foreach)- These provides a way for 
+iteration that is repeating something until a condtion is met. 
+*/
 
-
-
-
-
-
-
-
-
-
-
-
-/*   PHP if Operators
-  
+/*
+  PHP if Operators use both Comparison and Logical Operators 
   If statements contain conditions that compare two values so for this we have 
   comparison operators 
-  ==	Equal	Returns true if the values are equal	
-  ===	Identical	Returns true if the values and data types are identical	
-  
-  !=	Not equal	Returns true if the values are not equal	
-  <>	Not equal	Returns true if the values are not equal	
-
-  !==	Not identical	Returns true if the values or data types are not identical	
-
-  >	Greater than	Returns true if the first value is greater than the second value	
-
-  <	Less than	Returns true if the first value is less than the second value	
-
-  >=	Greater than or equal to	Returns true if the first value is greater than, 
-      or equal to, the second value	
-
-  <=	Less than or equal to	Returns true if the first value is less than, or equal to,
-      the second value
-
- To check more than one condition, we can use logical operators, 
- 
- and - 	And	True if both conditions are true	
- &&  -  And	True if both conditions are true	
-
- or	-   Or	True if either condition is true	
- || - 	Or	True if either condition is true	
-
- xor - Xor	True if either condition is true, but not both	
-  !	 - Not	True if condition is not true     
+  To check more than one condition, we can use logical operators
 */
 
 
@@ -178,8 +168,10 @@ if ($age >= 18) {
   echo 'You are old enough to vote!' . "\n";
 } else {
   echo 'Sorry, you are too young to vote.' . "\n";
-}
+}; 
 
+echo "<br>";
+echo "<br>";
 
 // if...elseif...else statement
 $t = date('H'); // hour
