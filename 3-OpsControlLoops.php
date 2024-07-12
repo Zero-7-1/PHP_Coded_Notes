@@ -13,13 +13,12 @@ curly braces
    Operator are mainly divided by three groups.
    1.Uniary Operators that takes one values    (logical not, increment, decrement )
    2.Binary Operators that takes two values    (airthmetical)
-   3.ternary operators that takes three values (terniary)
+   3.Ternary operators that takes three values (terniary)
 */
 
 // Arithmetic Operators
 /* 
-  +$a  Identity Conversion of $a to int or float as appropriate
-  -$a	Negation	Opposite of $a
+
   $a + $b	Addition	Sum of $a and $b
   $a - $b	Subtraction	Difference of $a and $b
   $a * $b	Multiplication	Product of $a and $b
@@ -187,7 +186,8 @@ echo "<br>";
 echo "<br>";
 
 
-// Checking if an array is empty or not
+// A good example to understand if else in a more practical way 
+// Checking if an array of post is empty or not
 /*
 We have used here empty() which returns true if the variable is 
 considered empty, and false otherwise. The ! (logical NOT) operator negates this 
@@ -204,6 +204,7 @@ if (!empty($posts[0])) {
 
 echo "<br>";
 echo "<br>";
+
 
 // Shorthand if Statements or Ternary Operators or Conditional Expressions
 // if in one line
@@ -239,7 +240,7 @@ switch ($favcolor) {
     echo 'Your favorite color is not red, blue, nor green!';
 }
 
-/*Now see, these concepts are similar to all programming languages so 
+/* Now see, these concepts are similar to all programming languages so 
   obviously we need break to stop exceuting when case is matched and we 
   use default to the run code if all cases fails */
 
@@ -256,10 +257,10 @@ switch ($favcolor) {
 </head>
 <body>
 
-<!--  note that we can use php in between htmls to write some logic -->
+<!--  At this pont we know to use php in between htmls to write some logic -->
 <?php    
 $nameOfBook ="'The Alchemist'";
-$hasRead= true; // we have read this boom 
+$hasRead= true; // we have read this book
 
 if ($hasRead) {
   $message ="You have read $nameOfBook"; 
@@ -292,7 +293,7 @@ $comments = [
 
 $index = 0; // Initialize a counter
 
-$totalComments = count($comments); // count() can give total number of comments 
+$totalComments = count($comments); // count() can give total number of items
 
 // Using while loop to display each comment
 while ($index < $totalComments) {
@@ -340,11 +341,41 @@ do {
 } 
 while ($index2 < $totalComments2);
 
-
-
-
-// for loop 
-
-
-
+//  for loop 
 ?>
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Loop</title>
+</head>
+<body>
+  <h1> Product List </h1>
+
+<?php
+// Generally we would get the data from the database 
+$productList = [
+['Product Name' => 'Realme 12x 5g', 'Price' => 12000 ],
+['Product Name' => 'Realme 8 pro', 'Price' => 20000 ],
+];
+// Q. WHAT IF WE WANT TO ADD A CURRENCY TO PRICE FOR THAT WE HAVE TO USE STRING
+     // BUT AFTER THAT HOW THINGS CAN BE DONE FOR PRICE AS A NUMBER 
+
+  for ($index3=0; $index3 < count($productList); $index3++) {
+      $ProductName = $productList[$index3]['Product Name'];
+      $ProductPrice = $productList[$index3]['Price'];
+  
+  echo "<p>$ProductName - Rs. $ProductPrice</p>";
+          // Answser to the previous question, can add currency while outputting 
+          // Q. AGAIN WHAT IF WE WANT , IN PRICE LIKE THIS RS. 20,000
+    }
+?>
+
+
+</body>
+</html>
