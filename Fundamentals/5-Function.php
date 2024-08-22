@@ -2,14 +2,16 @@
 // User Defined Function 
 /*
 A user-defined function declaration starts with the keyword function, 
-followed by the name of the function. Information can be passed to functions through 
-arguments and parameters. 
-Parameters are the variables that are defined in the 
-function signature (or declaration). They act as placeholders for the values that
+followed by the name of the function. 
+
+Information can be passed to functions through arguments and parameters. 
+Parameters are the variables that are defined in the function signature 
+(or declaration). They act as placeholders for the values that
 will be passed to the function when it is called. 
-Arguments are the actual values that
-are passed to the function when it is called. They are the real data that the function
-processes. 
+
+Arguments are the actual values that are passed to the function when it is called. 
+They are the real data that the function processes. 
+
 Also we have Default Argument Value - If we call the function without arguments it 
 takes the default parameter value as argument. 
 Additionally, functions can either return a value or perform an action without 
@@ -38,6 +40,23 @@ function setHeight($minheight = 50) {
     return $a + $b;
  }
 echo sumTwo(5,5);
+
+
+echo "<br>";
+echo "<br>";
+
+
+// Anonymous functions or closures
+/*
+Functions which have no specified name. They are most useful as the value of 
+callable parameters. 
+
+I will come to this after closure class and callbacks
+*/
+
+
+// Arrow Functions
+
 
 
 ?>

@@ -19,7 +19,8 @@ Q. EXPLAIN EACH OF THE TYPES OF ARRAY. ***
 
 // Simple array of numbers using sq. brace 
 $numbers = [1, 2, 3, 4, 5];
-     // or using array function 
+     
+// or using array function 
 $fruits = array('apple', 'banana');
 
 // outputting arrays 
@@ -65,7 +66,8 @@ var_dump($hex);
 echo "<br>";
 echo "<br>";
 
-/* Q. HOW DO WE ADD ITEMS TO AN ALREADY CREATED ARRAY IN PHP ? 
+
+/* Q. HOW DO WE ADD ITEMS TO AN ALREADY CREATED ARRAY IN PHP ? *** 
  To add multiple items to an existing array, we use the array_push() for indexed
  and   += operator for associative array */ 
 
@@ -88,10 +90,11 @@ echo "<br>";
 
 /*
 Array Functions - The real strength of PHP arrays are the built-in array functions:
-count() function for counting array items, 
+count() function for counting array items (we have already seen this),
 array() to create fresh array,
 array_push() to add item to the end of indexed array, 
 array_pop() pops the element off the end of an array,
+we will see more array methods or fuctions as when we came across 
 */
 $cars = array("Volvo", "BMW", "Toyota");
 $count = count($cars);
@@ -99,12 +102,6 @@ echo "No. of Items in this Array are " . $count;
 
 echo "<br>";
 echo "<br>";
-
-
-
-
-
-
 
 // Generally we use forEach to loop over array rather than traditional loop
 
@@ -139,7 +136,7 @@ echo "<br>";
 
 
 /*
-Q. CAN WE HAVE BOTH INDEXED AND NAMED KEY FOR AN ARRAY ? 
+Q. CAN WE HAVE BOTH INDEXED AND NAMED KEY FOR AN ARRAY ? ***
 Yes, it is possible by creating an empty array first then adding mix of indexed 
 and key to it. 
 */
@@ -154,11 +151,13 @@ var_dump($myArr);
 echo "<br>";
 echo "<br>";
 
-/* Q. HOW CAN WE EXCEUTE A FUNCTION WITHIN AN ARRAY ? 
+/* Q. HOW CAN WE EXCEUTE A FUNCTION WITHIN AN ARRAY ?***
 Excecuting a Function Item within Array, To execute such a function, use the 
 index number followed by parentheses (). There are actually two ways of doing it:
+
 First, store function name as string inside array if function defined outside array
 and call it using index number and ().
+
 Second, we can directly store an anonynmous function and then call it 
 */
 
@@ -175,3 +174,25 @@ $myArr3 = array("a String", 15,
             echo "I came from an unnamed fucntion";
           });
 $myArr3[2]();
+
+
+echo "<br>";
+echo "<br>";
+
+//  Multidimensional Arrays
+/*
+We have also seen this in our for loop example. Arrays more than three levels 
+deep are hard to manage, so practically we use more a 2d array or in some rare cases
+3d array 
+For a two-dimensional array we need two indices to select an element (row and column)
+For a three-dimensional array we need three indices to select an element
+*/
+// 2D array of a cars, stock and sold data 
+$cars = array (
+  array("Volvo",22,18),
+  array("BMW",15,13),
+  array("Saab",5,2),
+  array("Land Rover",17,15)
+);
+echo $cars[0][0].": In stock: ".$cars[0][1].", sold: ".$cars[0][2].".<br>";
+
