@@ -4,9 +4,9 @@
 
 -> A PHP script can be placed anywhere in the document.
 -> A PHP script is executed on the server, and the plain HTML result 
-   is sent back to the browser. So thats why it is a server side or back end
+   is sent back to the browser. It is a server side or back end
    programmng language. 
--> PHP is a powefull language powering general and old legacy websites  
+-> PHP is a powefull language powering many websites  
    even though many think that php is not worthful language mainly due to
    meme culture, it is still used widely and is alive. 
 */

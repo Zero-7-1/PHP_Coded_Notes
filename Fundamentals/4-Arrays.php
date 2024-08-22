@@ -1,14 +1,14 @@
 <?php
-/* Q. DEFINE ARRAY. HOW MANY TYPES OF ARRAYS ARE THERE IN PHP ? 
-Arrays are special variables that holds multiple values and of any data types even 
-ojects, fuctions and arrays itself.
+/* Q. HOW MANY TYPES OF ARRAYS ARE THERE IN PHP ? ***
+   Arrays are special variables that holds multiple values and of any data types even 
+   ojects, fuctions and arrays itself.
 
-In PHP, there are three types of arrays:
+  In PHP, there are three types of arrays:
   Indexed arrays - Arrays with a numeric index
   Associative arrays - Arrays with named keys
   Multidimensional arrays - Arrays containing one or more arrays
 
-Q. EXPLAIN EACH OF THE TYPES OF ARRAY. 
+Q. EXPLAIN EACH OF THE TYPES OF ARRAY. ***
 */
 
  /* Indexed Array

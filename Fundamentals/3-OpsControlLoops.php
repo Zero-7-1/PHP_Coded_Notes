@@ -49,7 +49,7 @@ x %= y is same as	x = x % y
 */
 
 // Comparison Operators - comparison operators are used to compare two values
-/*
+/* We use comparison operators in if else statements to check a condition  
 ==	Equal	e.g $x == $y	Returns true if $x is equal to $y	
 ===	Identical	e.g $x === $y	Returns true if $x is equal to $y, 
                             and they are of the same type	
@@ -70,7 +70,7 @@ x %= y is same as	x = x % y
 */
 
 // Logical Operators - logical operators are used to combine conditional statements
-/* 
+/* We also use logocal operators in if else when there are more than 2 conditions 
 and	- And	$x and $y	True if both $x and $y are true	
 or	- Or	$x or $y	True if either $x or $y is true	
 xor	- Xor	$x xor $y	True if either $x or $y is true, but not both	
@@ -138,26 +138,32 @@ Operators                                 | Description                         
 
 
 
+
+
+
+
+
+
 /* Control flow refers to the order in which statements are exceuted. 
-These statements allows us to make decisions, repeat actions, and control
-the flow of excecution of in our code. These are fundamentals to any 
-programming language. 
 
-Now again we can say there are two types of control flow satements or 
-we can achieve control flow in two ways
+  These statements allows us to make decisions, repeat actions, and control
+  the flow of excecution of in our code. These are fundamentals to any 
+  programming language. 
 
-1. Conditional Statements (if, if..else, if..else if..else, switch)- 
+  Now again we can say there are two types of control flow satements or 
+  we can achieve control flow in two ways
+
+1. Conditional Statements (if..else, elseif, nested ifs and switch)- 
    As the name suggests these statements performs actions based on certain conditions.
 
 2. Looping Statements(for, while, do while, foreach)- These provides a way for 
-iteration that is repeating something until a condtion is met. 
+   iteration that is repeating something until a condtion is met. 
 */
 
 /*
-  PHP if Operators use both Comparison and Logical Operators 
   If statements contain conditions that compare two values so for this we have 
-  comparison operators 
-  To check more than one condition, we can use logical operators
+  comparison operators. To check more than one condition, we can use 
+  logical operators
 */
 
 
@@ -171,6 +177,7 @@ if ($age >= 18) {
 
 echo "<br>";
 echo "<br>";
+
 
 // if...elseif...else statement
 $t = date('H'); // using date object we could get hour
@@ -190,11 +197,13 @@ echo "<br>";
 // Checking if an array of post is empty or not
 /*
 We have used here empty() which returns true if the variable is 
-considered empty, and false otherwise. The ! (logical NOT) operator negates this 
-result.
+considered empty, and false otherwise. 
+The ! (logical NOT) operator negates this result.
 */
 
-$posts = [];
+$posts = [
+  "One", "Two"
+];
 
 if (!empty($posts[0])) {
   echo $posts[0];
@@ -206,16 +215,17 @@ echo "<br>";
 echo "<br>";
 
 
-// Shorthand if Statements or Ternary Operators or Conditional Expressions
+// Shorthand if Statement or Ternary Operator or Conditional Expression
 // if in one line
 $a = 5;
 if ($a < 10) $b = "a is inded smaller";
 echo $b;
 
-// if..else in one line
+// if..else in one line or this is called Ternary Operator 
 $ab = 13;
 $ba = $ab < 10 ? "this side runs if true" : " but ab is greater";
 echo $ba;
+
 
 echo "<br>";
 echo "<br>";
@@ -241,13 +251,10 @@ switch ($favcolor) {
 }
 
 /* Now see, these concepts are similar to all programming languages so 
-  obviously we need break to stop exceuting when case is matched and we 
-  use default to the run code if all cases fails */
+   obviously we need break to stop exceuting when case is matched and we 
+   use default to the run code if all cases fails */
 
 ?>
-
-
-
 
 
 <!DOCTYPE html>
@@ -276,12 +283,17 @@ if ($hasRead) {
 </html>    
 
 <?php
+
+
 // Now we would look over looping 
 
 // while loop - repeats code as long as condition is true 
-/* Lets consider this example 
-Using a while loop, we can ensure that each comment is processed and displayed, 
-even if the number of comments is unknown 
+
+/* Lets consider another practical example 
+   Using a while loop, we can ensure that each comment is displayed, 
+   even if the number of comments is unknown 
+
+We use while loop when we don'nt know how much times we have to loop excactly 
 */
 
 $comments = [
@@ -289,24 +301,26 @@ $comments = [
   "Here is another comment.",
   "Yet another insightful comment.",
   "This is the last comment."
-];    // generally we would fetch this from database, we would cover this in db part
+];   
 
 $index = 0; // Initialize a counter
 
 $totalComments = count($comments); // count() can give total number of items
-
+                    // this would to 4 
+                    
 // Using while loop to display each comment
 while ($index < $totalComments) {
   echo "Comment: " . $comments[$index] . "<br>";
-  $index++; // Do not forget to Increment the counter other it will run forever 
+  $index++; // Do not forget to Increment the counter or only at 0 will run forever 
+            // and the condition will never be false 
 }
-// If there are no comments
+// If there are no comments, we have included a if statement in loop 
 if ($totalComments === 0) {
   echo "There are no comments.";
 }
 
 
-/*
+/* do while 
 do..while works bit different it will always execute the block of code at least once, 
 it will then check the condition, and repeat the loop while the specified condition is
 true lets take same example and use do while 
@@ -316,11 +330,9 @@ true lets take same example and use do while
 echo "<br>";
 echo "<br>";
 
-
-
 // Array of comments
 $comments2 = [
-
+ "heoo"
 ];
 
 // Initialize a counter
@@ -341,12 +353,9 @@ do {
 } 
 while ($index2 < $totalComments2);
 
+
 //  for loop 
 ?>
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -375,7 +384,33 @@ $productList = [
           // Q. AGAIN WHAT IF WE WANT , IN PRICE LIKE THIS RS. 20,000
     }
 ?>
-
-
 </body>
 </html>
+
+<?php
+/* foreach Loop is only used to loop over arrays or even on objects
+Advantage of foreach allows us to easily traverse elements without needing 
+to keep track of the index manually
+*/
+$person = [
+  "name" => "John Doe",
+  "age" => 30,
+  "occupation" => "Developer"
+];
+
+foreach ($person as $key => $value) {
+  echo $key . ": " . $value . "\n";
+}
+
+echo "<br>";
+echo "<br>";
+
+$fruits = ["Apple", "Banana", "Cherry"];
+foreach ($fruits as $fruit) {
+    echo $fruit . "\n";
+}
+
+
+
+
+?>
