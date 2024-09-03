@@ -387,6 +387,7 @@ $productList = [
 </body>
 </html>
 
+
 <?php
 /* foreach Loop is only used to loop over arrays or even on objects
 Advantage of foreach allows us to easily traverse elements without needing 
