@@ -2,7 +2,7 @@
 /*
 From PHP5, we can write PHP code in an object-oriented style
 
-Q. A BREF ABOUT OOPS AS I KNOW IT FROM JAVA SO BASIC GENERAL RECAP. *
+Q. A BRIEF ABOUT OOPS AS I KNOW IT FROM JAVA SO BASIC GENERAL RECAP. *
 
 Procedural programming is about writing lots of functions that perform operations on 
 the data, while object-oriented programming is about creating objects that contain 
